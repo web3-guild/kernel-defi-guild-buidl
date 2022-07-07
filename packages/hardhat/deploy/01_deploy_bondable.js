@@ -17,9 +17,9 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   const { deployer } = await getNamedAccounts();
   const chainId = await getChainId();
 
-  console.log("Entered 00 deploy file");
+  console.log("Entered 01 deploy file");
 
-  await deploy("YourContract", {
+  await deploy("Bondable", {
     // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
     from: deployer,
     // args: [ "Hello", ethers.utils.parseEther("1.5") ],

@@ -11,6 +11,8 @@
 
 Prerequisites: [Node (v16 LTS)](https://nodejs.org/en/download/) plus [Yarn](https://classic.yarnpkg.com/en/docs/install/) and [Git](https://git-scm.com/downloads)
 
+=> Suggestion: use node version 16.15.1, npm version 8.11.0 and yarn 1.22.19.
+
 > clone/fork 🏗 scaffold-eth:
 
 ```bash
