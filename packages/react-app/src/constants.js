@@ -1,5 +1,6 @@
 // MY INFURA_ID, SWAP IN YOURS FROM https://infura.io/dashboard/ethereum
 export const INFURA_ID = process.env.REACT_APP_INFURA_ID; //"460f40a260564ac4a4f4b3fffb032dad";
+export const GOERLI_ALCHEMY_KEY = process.env.REACT_APP_ALCHEMY_KEY; //"460f40a260564ac4a4f4b3fffb032dad";
 
 // MY ETHERSCAN_ID, SWAP IN YOURS FROM https://etherscan.io/myapikey
 export const ETHERSCAN_KEY = "DNXJA8RX2Q3VZ4URQIWP7Z68CJXQZSC6AW";
@@ -58,7 +59,7 @@ export const NETWORKS = {
     chainId: 5,
     faucet: "https://goerli-faucet.slock.it/",
     blockExplorer: "https://goerli.etherscan.io/",
-    rpcUrl: `https://goerli.infura.io/v3/${INFURA_ID}`,
+    rpcUrl: `https://eth-goerli.g.alchemy.com/v2/${GOERLI_ALCHEMY_KEY}`,
   },
   xdai: {
     name: "xdai",
@@ -124,21 +125,21 @@ export const NETWORKS = {
     color: "#28a0f0",
     chainId: 421611,
     blockExplorer: "https://testnet.arbiscan.io/",
-    rpcUrl: 'https://rinkeby.arbitrum.io/rpc',
+    rpcUrl: "https://rinkeby.arbitrum.io/rpc",
   },
   arbitrum: {
     name: "arbitrum",
     color: "#28a0f0",
     chainId: 42161,
     blockExplorer: "https://arbiscan.io/",
-    rpcUrl: 'https://arb1.arbitrum.io/rpc',
+    rpcUrl: "https://arb1.arbitrum.io/rpc",
   },
   devnetArbitrum: {
     name: "devnetArbitrum",
     color: "#28a0f0",
     chainId: 421612,
     blockExplorer: "https://nitro-devnet-explorer.arbitrum.io/",
-    rpcUrl: 'https://nitro-devnet.arbitrum.io/rpc',
+    rpcUrl: "https://nitro-devnet.arbitrum.io/rpc",
   },
   localAvalanche: {
     name: "localAvalanche",

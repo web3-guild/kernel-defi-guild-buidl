@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Button, Col, Menu, Row } from "antd";
 import "antd/dist/antd.css";
 import {
@@ -31,6 +32,8 @@ import deployedContracts from "./contracts/hardhat_contracts.json";
 import { Transactor, Web3ModalSetup } from "./helpers";
 import { Home, ExampleUI, Hints, Subgraph } from "./views";
 import { useStaticJsonRPC } from "./hooks";
+import toast, { Toaster } from 'react-hot-toast';
+import Bondable from "./components/Bondable";
 
 const { ethers } = require("ethers");
 /*
@@ -53,7 +56,7 @@ const { ethers } = require("ethers");
 */
 
 /// 📡 What chain are your contracts deployed to?
-const initialNetwork = NETWORKS.rinkeby; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
+const initialNetwork = NETWORKS.goerli; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 // 😬 Sorry for all the console logging
 const DEBUG = false;
@@ -305,6 +308,9 @@ function App(props) {
         <Menu.Item key="/subgraph">
           <Link to="/subgraph">Subgraph</Link>
         </Menu.Item>
+        <Menu.Item key="/bondable">
+          <Link to="/bondable">Bondable</Link>
+        </Menu.Item>
       </Menu>
 
       <Switch>
@@ -318,7 +324,7 @@ function App(props) {
                 this <Contract/> component will automatically parse your ABI
                 and give you a form to interact with it locally
             */}
-            <h1>test</h1>
+          <h1>test</h1>
           <Contract
             name="YourContract"
             price={price}
@@ -330,7 +336,6 @@ function App(props) {
           />
           <Contract
             name="Bondable"
-            price={price}
             signer={userSigner}
             provider={localProvider}
             address={address}
@@ -390,6 +395,18 @@ function App(props) {
             mainnetProvider={mainnetProvider}
           />
         </Route>
+
+        <Route>
+          <Bondable
+            name="Bondable"
+            price={price}
+            signer={userSigner}
+            provider={localProvider}
+            address={address}
+            blockExplorer={blockExplorer}
+            contractConfig={contractConfig}
+          />
+        </Route>
       </Switch>
 
       <ThemeSwitch />
@@ -419,6 +436,8 @@ function App(props) {
             </Button>
           </Col>
         </Row>
+
+        <Toaster />
 
         <Row align="middle" gutter={[4, 4]}>
           <Col span={24}>
