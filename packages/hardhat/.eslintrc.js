@@ -17,7 +17,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     "prefer-destructuring": "off",
     "prefer-template": "off",
-    "no-console": "off",
+    "no-console": "true",
     "func-names": "off",
   },
 };
