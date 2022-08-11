@@ -32,8 +32,9 @@ import deployedContracts from "./contracts/hardhat_contracts.json";
 import { Transactor, Web3ModalSetup } from "./helpers";
 import { Home, ExampleUI, Hints, Subgraph } from "./views";
 import { useStaticJsonRPC } from "./hooks";
-import toast, { Toaster } from 'react-hot-toast';
+//import toast, { Toaster } from 'react-hot-toast';
 import Bondable from "./components/Bondable";
+import Market from "./components/Market";
 
 const { ethers } = require("ethers");
 /*
@@ -68,9 +69,7 @@ const web3Modal = Web3ModalSetup();
 
 // 🛰 providers
 const providers = [
-  "https://eth-mainnet.gateway.pokt.network/v1/lb/611156b4a585a20035148406",
   `https://eth-mainnet.alchemyapi.io/v2/${ALCHEMY_KEY}`,
-  "https://rpc.scaffoldeth.io:48544",
 ];
 
 function App(props) {
@@ -293,7 +292,7 @@ function App(props) {
         <Menu.Item key="/">
           <Link to="/">App Home</Link>
         </Menu.Item>
-        <Menu.Item key="/debug">
+        {/* <Menu.Item key="/debug">
           <Link to="/debug">Debug Contracts</Link>
         </Menu.Item>
         <Menu.Item key="/hints">
@@ -308,6 +307,7 @@ function App(props) {
         <Menu.Item key="/subgraph">
           <Link to="/subgraph">Subgraph</Link>
         </Menu.Item>
+      */}
         <Menu.Item key="/bondable">
           <Link to="/bondable">Bondable</Link>
         </Menu.Item>
@@ -342,6 +342,15 @@ function App(props) {
             blockExplorer={blockExplorer}
             contractConfig={contractConfig}
           />
+        </Route>
+        <Route path="/market/underlying/:underlying/maturity/:maturity">
+          <Market name="Bondable"
+            signer={userSigner}
+            provider={localProvider}
+            address={address}
+            blockExplorer={blockExplorer}
+            contractConfig={contractConfig}>
+          </Market>
         </Route>
         <Route path="/hints">
           <Hints
@@ -437,7 +446,7 @@ function App(props) {
           </Col>
         </Row>
 
-        <Toaster />
+        {/* <Toaster /> */}
 
         <Row align="middle" gutter={[4, 4]}>
           <Col span={24}>
